@@ -28,7 +28,7 @@ const skills = [
 const experiences = [
   {
     logo: Jio,
-    title: "SDET, Jio Platforms Limited",
+    title: "SDE, Jio Platforms Limited",
     duration: "Jan 2024 - current",
     description: [
       " Tech Stack: Node.js, Express.js, MongoDB (NoSQL), React.js, Tailwind, Redis, Docker",
