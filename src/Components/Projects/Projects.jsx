@@ -1,72 +1,75 @@
-// import React from 'react';
-// import ProjectCard from './ProjectCard';
+import SectionLabel from "../ui/SectionLabel"
+import ProjectCard from "./ProjectCard"
 
-// const Projects = () => {
-//   return (
-//     <div id="Projects" className="justify-center bg-gradient-to-br from-gray-200 to-gray-300 p-8 md:p-16 lg:p-24 min-h-screen">
-//       {/* Projects Title */}
-//       <span className="block text-2xl md:text-3xl font-bold text-white bg-[#8b8a91] px-6 py-3 rounded-lg shadow-md w-max">
-//         Projects
-//       </span>
+const projects = [
+  {
+    featured: true,
+    title: "National Pension Scheme (NPS)",
+    stackNote: "Wits Innovation Labs — GoLang · PostgreSQL · REST APIs",
+    bullets: [
+      "Led backend development of subscriber onboarding flows (Individual, Minor, Corporate, Assisted), driving design decisions and modular SOLID-based architecture.",
+      "Contributed to HLD and service decomposition, data flow, and integration patterns across Aadhaar, FATCA, nominee, and banking modules.",
+      "Built OTP-based authentication service with rate limiting and failure handling for secure multi-step verification.",
+      "Implemented PRAN generation APIs with idempotency and retry mechanisms, achieving 99.9% reliability in external service interactions.",
+    ],
+    tags: [
+      { label: "GoLang", variant: "green" },
+      { label: "PostgreSQL", variant: "blue" },
+      { label: "REST APIs", variant: "green" },
+    ],
+    footer: { left: "Professional work", right: "" },
+  },
+  {
+    featured: false,
+    title: "Saleor — ONDC Platform",
+    stackNote: "Wits Innovation Labs — TypeScript · Node.js · Kafka · Razorpay · Microservices",
+    bullets: [
+      "Led migration to event-driven architecture, replacing HTTP polling with Kafka-based event streaming, reducing latency by ~20–40%.",
+      "Contributed to HLD for inter-service communication using Kafka, defining topics, partitions, and consumer groups to improve scalability and fault tolerance.",
+      "Built resilient notification service using Kafka with retry, dead-letter queues, and consumer offset management for reliable async processing.",
+      "Integrated Razorpay with complete payment lifecycle (callbacks, fallback, refunds).",
+    ],
+    tags: [
+      { label: "TypeScript", variant: "green" },
+      { label: "Kafka", variant: "blue" },
+      { label: "Node.js", variant: "green" },
+      { label: "Razorpay", variant: "amber" },
+    ],
+    footer: { left: "Professional work", right: "" },
+  },
+  {
+    featured: false,
+    title: "@rishabsikka/rate-limitter",
+    stackNote: "Published NPM package — TypeScript · Node.js · Redis · In-Memory Storage",
+    bullets: [
+      "Supports multiple rate limiting strategies: Fixed Window, Token Bucket, and Leaky Bucket.",
+      "Works with both in-memory storage for local development and Redis for distributed/multi-instance deployments.",
+      "Simple factory-based API for creating reusable rate limiter instances with configurable policies.",
+      "Framework-agnostic design compatible with Express, Fastify, NestJS, and custom Node.js servers.",
+      "Provides retry timing and limiter state utilities for handling HTTP 429 responses and debugging.",
+    ],
+    tags: [
+      { label: "TypeScript", variant: "green" },
+      { label: "Redis", variant: "blue" },
+      { label: "npm", variant: "amber" },
+    ],
+    footer: {
+      left: "Open source",
+      link: "https://www.npmjs.com/package/@rishabsikka/rate-limitter",
+      linkLabel: "npm package",
+    },
+  },
+]
 
-//       {/* Projects Grid */}
-//       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 py-12">
-//         <ProjectCard
-//           title="WebGeo - Here Maps & OSM Maps"
-//           main="An interactive map application built with JavaScript, React.js, and ASP.NET, leveraging OpenLayers for advanced geospatial visualization."
-//         />
-//         <ProjectCard
-//           title="Restaurant Ordering System"
-//           main="A restaurant management system using ASP.NET Core MVC & Entity Framework with CRUD functionality, shopping cart, and order processing."
-//         />
-//         <ProjectCard
-//           title="Real-Time Face Recognition App"
-//           main="Led a facial recognition project utilizing Python, OpenCV, and HaarCascade classifier, achieving 94% accuracy in face detection."
-//         />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Projects;
-
-import React from 'react';
-import ProjectCard from './ProjectCard';
-
-const Projects = () => {
+export default function Projects() {
   return (
-    <div id="Projects" className='p-2 md:p-6  min-h-screen'>
-        <h2 className="relative top-4 left-4 text-[#132238] text-3xl font-bold border-b-2 border-[#132238]">
-        Projects
-      </h2>
-        <div className='p-10 gap-8 md:p-30 flex justify-between'>
-            <ProjectCard
-                title="Drone Survey" 
-                main="
-                • Node.js, Express.js, Mongodb, mongoose
-                • Utilized the Haversine Algorithm to compute the radius around specific latitude and longitude coordinates.
-                • Generated multiple waypoints for precise drone hovering and path planning.
-                • Multiple endpoints have been developed for managing users, drones, missions, and textflight logs.
-                • Leveraged the fs module in Node.js to dynamically generate and provide flight logs in PDF format for end-users."
-            />
-            <ProjectCard 
-                title=" Uber Clone" 
-                main=" ∗ Node.js, Express.js, Mongodb, mongoose, React.js React.js, TailWind CSS
- ∗ Developed a full-stack Uber clone application using the MERN stack (MongoDB, Express.js, React.js, Node.js).
- Implemented user authentication, real-time ride tracking, driver-passenger interaction, and location-based services with
- Google Maps API. Focused on scalable backend design and responsive UI."
-            />
-            <ProjectCard 
-                title=" URL Shortner" 
-                main=" · Node.js, Express.js, Mongodb
-                Implements URL creation, redirection,
- and analytics tracking. Uses shortid for unique shortId. MongoDB schema includes redirectURL, shortId, and
- visitHistory. Routes include POST for creation, GET for redirection analytics."
-            />
-        </div>
-      
-    </div>
+    <section id="projects" className="scroll-mt-20 border-b border-[#1a1a1a] px-6 py-12 md:px-8 md:py-12">
+      <SectionLabel>projects</SectionLabel>
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+        {projects.map((p) => (
+          <ProjectCard key={p.title} {...p} />
+        ))}
+      </div>
+    </section>
   )
 }
-
-export default Projects

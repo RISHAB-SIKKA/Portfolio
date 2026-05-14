@@ -3,6 +3,33 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --fig-bg: #0f0f0f;
+  --fig-accent: #7cfc9e;
+  --fig-border: #2a2a2a;
+  --fig-line: #1a1a1a;
+  --fig-card: #141414;
+  --fig-chip: #161616;
+  --fig-muted: #888888;
+  --fig-dim: #555555;
+  --fig-tag-border: #252525;
+}
+
 * {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+html {
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--fig-bg);
+  color: #e8e8e8;
+}
+
+::selection {
+  background: rgba(124, 252, 158, 0.25);
+  color: #0f0f0f;
 }
